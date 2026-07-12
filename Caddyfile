@@ -42,9 +42,11 @@ curiator.net {
 		header @site_assets Cache-Control "public, max-age=604800"
 
 		handle {
-			root * /var/www/curiator.net
+			root * /srv/curiator.net
 			header Cache-Control "no-cache"
-			file_server
+			file_server {
+				hide Caddyfile README.md .git
+			}
 		}
 	}
 
