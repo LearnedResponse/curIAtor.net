@@ -1,0 +1,59 @@
+curiator.net {
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), geolocation=(), payment=()"
+	}
+
+	route {
+		@gallery_no_slash path /gallery
+		redir @gallery_no_slash /gallery/ 308
+
+		handle_path /gallery/* {
+			reverse_proxy 127.0.0.1:8210 {
+				header_down Set-Cookie "^(.+)$" "$1; Secure"
+				header_down Location "^/$" "/gallery/"
+			}
+		}
+
+		@shell_root {
+			path /
+			query workspaces=*
+		}
+		handle @shell_root {
+			reverse_proxy 127.0.0.1:8210 {
+				header_down Set-Cookie "^(.+)$" "$1; Secure"
+				header_down Location "^/$" "/gallery/"
+			}
+		}
+
+		@shell_routes path /api/* /app/* /assets/* /vendor/* /general /login /logout /profile /settings /queue* /feedback-* /static-app/* /whoami /fb-action /reload/* /auth/*
+		handle @shell_routes {
+			reverse_proxy 127.0.0.1:8210 {
+				header_down Set-Cookie "^(.+)$" "$1; Secure"
+				header_down Location "^/$" "/gallery/"
+			}
+		}
+
+		@site_assets path /site-assets/*
+		header @site_assets Cache-Control "public, max-age=604800"
+
+		handle {
+			root * /var/www/curiator.net
+			header Cache-Control "no-cache"
+			file_server
+		}
+	}
+
+	log {
+		output file /var/log/caddy/curiator.net-access.log {
+			roll_size 20MiB
+			roll_keep 5
+			roll_keep_for 168h
+		}
+		format json
+	}
+}
