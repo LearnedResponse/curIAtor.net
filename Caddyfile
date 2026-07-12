@@ -16,30 +16,33 @@ curiator.net {
 		@gallery_no_slash path /gallery
 		redir @gallery_no_slash /gallery/ 308
 
-		handle_path /gallery/* {
-			reverse_proxy 127.0.0.1:8210 {
-				header_down Set-Cookie "^(.+)$" "$1; Secure"
-				header_down Location "^/$" "/gallery/"
-			}
+		@gallery_index path /gallery/
+		handle @gallery_index {
+			root * /srv/curiator.net
+			rewrite * /gallery/index.html
+			header Cache-Control "no-cache"
+			file_server
 		}
 
-		@shell_root {
-			path /
-			query workspaces=*
-		}
-		handle @shell_root {
-			reverse_proxy 127.0.0.1:8210 {
-				header_down Set-Cookie "^(.+)$" "$1; Secure"
-				header_down Location "^/$" "/gallery/"
-			}
+		redir /gallery/sietch /gallery/sietch/ 308
+		redir /gallery/aviato /gallery/aviato/ 308
+		redir /gallery/geometry /gallery/geometry/ 308
+		redir /gallery/ot /gallery/ot/ 308
+
+		handle /gallery/sietch/* {
+			reverse_proxy 127.0.0.1:8210
 		}
 
-		@shell_routes path /api/* /app/* /assets/* /vendor/* /general /login /logout /profile /settings /queue* /feedback-* /static-app/* /whoami /fb-action /reload/* /auth/*
-		handle @shell_routes {
-			reverse_proxy 127.0.0.1:8210 {
-				header_down Set-Cookie "^(.+)$" "$1; Secure"
-				header_down Location "^/$" "/gallery/"
-			}
+		handle /gallery/aviato/* {
+			reverse_proxy 127.0.0.1:8310
+		}
+
+		handle /gallery/geometry/* {
+			reverse_proxy 127.0.0.1:8420
+		}
+
+		handle /gallery/ot/* {
+			reverse_proxy 127.0.0.1:8430
 		}
 
 		@site_assets path /site-assets/*

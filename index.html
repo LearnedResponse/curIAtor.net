@@ -19,7 +19,16 @@
       <a href="#workflow">Workflow</a>
       <a href="#capabilities">Capabilities</a>
       <a href="https://github.com/LearnedResponse/curIAtor">GitHub</a>
-      <a class="nav-gallery" href="/gallery/">Open gallery</a>
+      <details class="gallery-menu gallery-menu-nav">
+        <summary class="nav-gallery">Open gallery</summary>
+        <div class="gallery-options">
+          <a href="/gallery/sietch/"><strong>Sietch</strong><span>Materials and process research</span></a>
+          <a href="/gallery/aviato/"><strong>Aviato</strong><span>Mixed-framework app hosting</span></a>
+          <a href="/gallery/geometry/"><strong>Geometry</strong><span>Interactive mathematical classics</span></a>
+          <a href="/gallery/ot/"><strong>OT</strong><span>Industrial HMI and operations</span></a>
+          <a class="gallery-all" href="/gallery/">View all galleries</a>
+        </div>
+      </details>
     </nav>
   </header>
 
@@ -28,14 +37,36 @@
       <div class="hero-media" role="img" aria-label="curIAtor gallery showing an app, contextual feedback, and an agent reply"></div>
       <div class="hero-shade" aria-hidden="true"></div>
       <div class="hero-content">
-        <p class="eyebrow">Live feedback. Repository context. Verified fixes.</p>
+        <p class="eyebrow">The live-app skill for Codex + Claude Code</p>
         <h1 id="hero-title">cur<span>IA</span>tor</h1>
-        <p class="hero-copy">Your web apps have a curator now. Review the live interface, capture exactly what needs attention, and send the full thread to a coding agent without leaving the browser.</p>
+        <p class="hero-copy">Your web apps have a curator now. Give Codex or Claude Code the live interface, exact feedback thread, screenshot evidence, repository context, and verification command without leaving the browser.</p>
         <div class="hero-actions">
-          <a class="button primary" href="/gallery/">Explore the gallery</a>
+          <details class="gallery-menu gallery-menu-action">
+            <summary class="button primary">Explore galleries</summary>
+            <div class="gallery-options">
+              <a href="/gallery/sietch/"><strong>Sietch</strong><span>Materials and process research</span></a>
+              <a href="/gallery/aviato/"><strong>Aviato</strong><span>Mixed-framework app hosting</span></a>
+              <a href="/gallery/geometry/"><strong>Geometry</strong><span>Interactive mathematical classics</span></a>
+              <a href="/gallery/ot/"><strong>OT</strong><span>Industrial HMI and operations</span></a>
+              <a class="gallery-all" href="/gallery/">View all galleries</a>
+            </div>
+          </details>
           <a class="button secondary" href="https://github.com/LearnedResponse/curIAtor">View source</a>
         </div>
-        <p class="install"><code>pip install curiator</code></p>
+        <div class="install" aria-label="Install and link curIAtor">
+          <code>pip install curiator</code>
+          <code>curiator link --commands</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="agent-band" aria-label="Coding agent integrations">
+      <div class="section-inner agent-band-inner">
+        <p><strong>One skill, two native workflows.</strong> curIAtor installs repo-local instructions that Codex CLI and Claude Code can invoke themselves.</p>
+        <div class="agent-names" aria-label="Supported coding agents">
+          <span>Codex CLI</span>
+          <span>Claude Code</span>
+        </div>
       </div>
     </section>
 
@@ -49,7 +80,7 @@
         <ol class="workflow">
           <li><strong>Inspect</strong><span>Open any app through one collection shell.</span></li>
           <li><strong>Capture</strong><span>Rate, comment, screenshot, annotate, or reply in-thread.</span></li>
-          <li><strong>Act</strong><span>Dispatch to Codex, Claude Code, or your own command adapter.</span></li>
+          <li><strong>Act</strong><span>The curIAtor skill opens the exact task bundle in Codex or Claude Code.</span></li>
           <li><strong>Verify</strong><span>Smoke-test, reload, reply, and retain the Git and SQLite receipt.</span></li>
         </ol>
       </div>
@@ -61,7 +92,7 @@
           <p class="eyebrow">Context stays attached</p>
           <h2 id="proof-title">Feedback belongs beside the thing being reviewed</h2>
           <p>The gallery wraps mixed web stacks behind one origin. The right-hand panel records the conversation while the center remains the real, interactive application.</p>
-          <a class="text-link" href="/gallery/">See the live Sietch collection <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="/gallery/sietch/">See the live Sietch collection <span aria-hidden="true">→</span></a>
         </div>
         <figure>
           <img src="/site-assets/shell-feedback-panel.png" alt="curIAtor shell with an app catalog, live chart, feedback composer, annotated screenshot, and agent replies" width="1680" height="940">
@@ -90,8 +121,8 @@
             <p>Commit accepted source transitions with feedback provenance while SQLite remains the conversation and queue source of truth.</p>
           </article>
           <article>
-            <h3>Controlled autonomy</h3>
-            <p>Choose propose-only, automatic small fixes, held anonymous intake, authenticated dispatch, quotas, and per-run proposal branches.</p>
+            <h3>Agent-native workflow</h3>
+            <p>Use the same feedback ID, task bundle, reply trace, reload, and Git receipt from Codex CLI, Claude Code, or the headless watcher.</p>
           </article>
         </div>
       </div>
@@ -104,7 +135,16 @@
           <h2 id="closing-title">Put the maintenance loop where the apps already live.</h2>
         </div>
         <div class="closing-actions">
-          <a class="button primary" href="/gallery/">Open gallery</a>
+          <details class="gallery-menu gallery-menu-action gallery-menu-end">
+            <summary class="button primary">Open gallery</summary>
+            <div class="gallery-options">
+              <a href="/gallery/sietch/"><strong>Sietch</strong><span>Materials and process research</span></a>
+              <a href="/gallery/aviato/"><strong>Aviato</strong><span>Mixed-framework app hosting</span></a>
+              <a href="/gallery/geometry/"><strong>Geometry</strong><span>Interactive mathematical classics</span></a>
+              <a href="/gallery/ot/"><strong>OT</strong><span>Industrial HMI and operations</span></a>
+              <a class="gallery-all" href="/gallery/">View all galleries</a>
+            </div>
+          </details>
           <a class="button secondary" href="https://github.com/LearnedResponse/curIAtor#quickstart">Read the quickstart</a>
         </div>
       </div>
