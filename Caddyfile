@@ -1,3 +1,7 @@
+www.curiator.net {
+	redir https://curiator.net{uri} permanent
+}
+
 curiator.net {
 	encode zstd gzip
 
